@@ -1,15 +1,14 @@
 <div align="center">
   <img src="./public/favicon.svg" alt="Rail Atlas 铁道图鉴" width="112" height="112" />
   <h1>Rail Atlas · 铁道图鉴</h1>
-  <hr />
   <p><strong>以中国铁路为主的互动科普图鉴，让每一列火车的故事被看见。</strong></p>
   <hr />
   <p>
     <a href="https://github.com/woniu101/rail-atlas/actions/workflows/deploy.yml"><img src="https://github.com/woniu101/rail-atlas/actions/workflows/deploy.yml/badge.svg" alt="GitHub Pages 部署" /></a>
-    <img src="https://img.shields.io/badge/Version-0.1.0-a12423" alt="Version 0.1.0" />
-    <img src="https://img.shields.io/badge/Astro-7-BC52EE?logo=astro&logoColor=white" alt="Astro 7" />
-    <img src="https://img.shields.io/badge/Three.js-3D-222222?logo=threedotjs&logoColor=white" alt="Three.js 3D" />
-    <img src="https://img.shields.io/badge/Node.js-24_LTS-339933?logo=nodedotjs&logoColor=white" alt="Node.js 24 LTS" />
+    <img src="./docs/badges/version.svg" alt="Version 0.1.0" />
+    <img src="./docs/badges/astro.svg" alt="Astro 7" />
+    <img src="./docs/badges/threejs.svg" alt="Three.js 3D" />
+    <img src="./docs/badges/node.svg" alt="Node.js 24 LTS" />
   </p>
   <p><a href="https://woniu101.github.io/rail-atlas/"><strong>在线体验</strong></a> · <a href="#本地开发">本地开发</a> · <a href="#部署">部署说明</a> · <a href="#素材与许可">素材与许可</a></p>
 </div>
