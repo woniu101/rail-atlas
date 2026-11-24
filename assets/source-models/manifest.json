@@ -1,0 +1,101 @@
+{
+  "note": "Original GLB files are local archives, excluded from static output and git.",
+  "models": [
+    {
+      "slug": "hxd3d",
+      "sourceFile": "hxd3d_electric_locomotive_hxd3d.glb",
+      "originalBytes": 39806072,
+      "sha256": "e7da91ed9060ac4769df6aabac7ceda7b7ad9018aa64cb75961eae350695347c",
+      "sourceUrl": "https://sketchfab.com/3d-models/hxd3d-electric-locomotive-hxd3d-aa40849b8687426ea5da47deacb8c12f",
+      "license": "CC BY 4.0"
+    },
+    {
+      "slug": "df4d",
+      "sourceFile": "df4ddf4d_diesel_locomotive.glb",
+      "originalBytes": 30837436,
+      "sha256": "30ac4a0145a7e9e8db8cdb50975ef50e7c5ccf3bbc3c9443dd03ee7bb7091535",
+      "sourceUrl": "https://sketchfab.com/3d-models/df4ddf4d-diesel-locomotive-9dbe2eb62f4b4e4eab7653721fcea748",
+      "license": "CC BY 4.0"
+    },
+    {
+      "slug": "ss9",
+      "sourceFile": "ss9_electric_locomotive_9.glb",
+      "originalBytes": 22558044,
+      "sha256": "4dc64d1cdd0aee30b85903e66ad83612eae9489d92ebb1d4504edffda2731f4e",
+      "sourceUrl": "https://sketchfab.com/3d-models/ss9-electric-locomotive-9-32f65c752b8c45adb3c3ed32461fff04",
+      "license": "CC BY 4.0"
+    },
+    {
+      "slug": "hxd2",
+      "sourceFile": "hxd2_electric_locomotive_2.glb",
+      "originalBytes": 47175204,
+      "sha256": "fbd47b7e271c938584d7f6cb2dd8eb807137008fc3c556be5fce2732e8a1c57f",
+      "sourceUrl": "https://sketchfab.com/3d-models/hxd2-electric-locomotive-2-97847f39791e4292a4cbd837d9fbf6ba",
+      "license": "CC BY 4.0"
+    },
+    {
+      "slug": "hxd3b",
+      "sourceFile": "hxd3b_electric_locomotive__0001.glb",
+      "originalBytes": 31103748,
+      "sha256": "c7f3e74d95c17ee53894bc8cd203bc691fc27367095105095281eddec7308761",
+      "sourceUrl": "https://sketchfab.com/3d-models/hxd3b-electric-locomotive-0001-18323f9649504fe9bfe3c182845ca0fa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "slug": "nd5",
+      "sourceFile": "nd5_diesel_locomotive_prc_ge_c36-7nd5.glb",
+      "originalBytes": 57612472,
+      "sha256": "3b0b3cbc6d7db47ac52548fa5cb19ee2eaf52d753b72205207e34a61bde1181e",
+      "sourceUrl": "https://sketchfab.com/3d-models/nd5-diesel-locomotive-prc-ge-c36-7nd5-4d4579615d0e485eb1fe57d3df39ab74",
+      "license": "CC BY 4.0"
+    },
+    {
+      "slug": "drb-01-10",
+      "sourceFile": "drb_01.10_steam_locomotive_low_poly.glb",
+      "originalBytes": 5091220,
+      "sha256": "9d34050fb230bcc12d62551acbfd20faa373e9efee509522d6ae5931c1fe0b9f",
+      "sourceUrl": "https://sketchfab.com/3d-models/drb-0110-steam-locomotive-low-poly-b4e4252632f44492b6c018627a6b4a60",
+      "license": "CC BY 4.0"
+    },
+    {
+      "slug": "lms-fowler-4f",
+      "sourceFile": "lms_fowler_4f.glb",
+      "originalBytes": 3481408,
+      "sha256": "42359892ca5c11e8dd9a6ad15d45f257c0ce816c21014be624f0a9ebe8a5585f",
+      "sourceUrl": "https://sketchfab.com/3d-models/lms-fowler-4f-b84f7a5079d343ea83b35cb10517565e",
+      "license": "CC BY 4.0"
+    },
+    {
+      "slug": "chme3",
+      "sourceFile": "train__locomotive_low-poly_locomotive.glb",
+      "originalBytes": 1495724,
+      "sha256": "c2b1a03a6e065133973121e33d02f8ea525e9cfb13dd5cfd552df4f35136ab90",
+      "sourceUrl": "https://sketchfab.com/3d-models/train-locomotive-low-poly-locomotive-0eea1fa85cfa40769ce8e0cbb98e1d05",
+      "license": "CC BY 4.0"
+    },
+    {
+      "slug": "qj",
+      "sourceFile": "railisland-qj.glb",
+      "originalBytes": 1085452,
+      "sha256": "fd8e7cbb58d590e1d9c3786200a0c7048b57c055a55dbf7932cbd834179b8792",
+      "sourceUrl": "https://factory.railisland.com/model/proc-vehicle-cr-qj/",
+      "license": "CC0 1.0"
+    },
+    {
+      "slug": "crh380a",
+      "sourceFile": "railisland-crh380a.glb",
+      "originalBytes": 1158220,
+      "sha256": "a28003eca918c0dbcdae1adf2dea18b573d9a7f1df76b76363b386df621963d0",
+      "sourceUrl": "https://factory.railisland.com/model/proc-vehicle-cr-crh380a/",
+      "license": "CC0 1.0"
+    },
+    {
+      "slug": "cr400af",
+      "sourceFile": "railisland-cr400af.glb",
+      "originalBytes": 1070404,
+      "sha256": "8f7f187314f0d45588134f3d3c19cab235ac7899e83659a17948003527e12598",
+      "sourceUrl": "https://factory.railisland.com/model/proc-vehicle-cr-cr400af/",
+      "license": "CC0 1.0"
+    }
+  ]
+}

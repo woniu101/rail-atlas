@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import TrainCard from '../components/TrainCard.astro';
+import ModelViewer from '../components/ModelViewer';
+import RailDiagram from '../components/RailDiagram.astro';
+import {allArticles,allTrains} from '../lib/content';
+import {asset,url} from '../lib/paths';
+const trains=await allTrains();
+const articles=await allArticles();
+const readingPicks=['how-trains-turn','diesel-electric','train-brakes','pantograph-and-power','shinkansen-system','interoperability'].map(slug=>articles.find(a=>a.data.slug===slug)).filter(a=>!!a);
+const heroTrain=trains.find(t=>t.slug==='hxd3d')!;
+const featured=['qj','df4d','ss9','cr400af'].map(slug=>trains.find(t=>t.slug===slug)!);
+const eras=[['蒸汽时代','煤与水的力量','steam'],['内燃时代','柴油机的轰鸣','diesel'],['电气化时代','接触网下的远行','electric'],['高速铁路时代','更快，也更远','emu']];
+---
+<Layout>
+  <div class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy"><p class="eyebrow">中国铁路 · 互动探索</p><h1 id="hero-title"><span>每一列火车，</span><span>都有一段故事。</span></h1><p class="hero-description">从蒸汽时代到复兴号，探索中国铁路的车型与技术。</p><div class="hero-buttons"><a class="button" href={url('trains/')}>开始探索</a><a class="text-link" href={url('history/')}>浏览铁路历程</a></div><p class="hero-note">一位铁路爱好者的线上收藏</p></div>
+      <div class="hero-view"><p class="featured-tag">本期展车 <b>HXD3D</b></p><ModelViewer client:only="react" src={heroTrain.model!.path!} mobileSrc={heroTrain.model!.mobilePath} bytes={heroTrain.model!.bytes} mobileBytes={heroTrain.model!.mobileBytes} poster={heroTrain.image} title={heroTrain.fullName} autoStartDesktop={true}><img slot="fallback" class="hero-model-image" src={asset(heroTrain.image)} alt={heroTrain.fullName} fetchpriority="high"/></ModelViewer><div class="model-caption"><div><h2>和谐3D型电力机车</h2><p>六轴交流传动 / 干线客运</p></div><div class="caption-tools"><span>本期车型档案</span><a href={url('trains/hxd3d/')} aria-label="查看和谐3D车型档案"><Icon name="expand" size={20}/></a></div></div></div>
+    </section>
+    <section class="section collection-section" aria-labelledby="explore-title"><div class="section-heading"><h2 class="heading-mark" id="explore-title">探索车型</h2><a href={url('trains/')}>查看全部车型</a></div><nav class="filters" aria-label="按车辆类别探索"><a class="filter active" href={url('trains/')}>全部</a><a class="filter" href={url('trains/?category=steam')}>蒸汽机车</a><a class="filter" href={url('trains/?category=diesel')}>内燃机车</a><a class="filter" href={url('trains/?category=electric')}>电力机车</a><a class="filter" href={url('trains/?category=emu')}>动车组</a></nav><div class="train-grid">{featured.map(train=><TrainCard train={train} eager={true}/>)}</div></section>
+    <section class="history-strip history-strip-full" aria-label="铁路发展历程"><div><div class="section-heading"><h2 class="heading-mark">沿着铁轨，看见时代</h2><a href={url('history/')}>阅读完整历程</a></div><div class="mini-timeline">{eras.map(([name,desc,era])=><a href={url(`history/#${era}`)}>{name}<small>{desc}</small></a>)}</div></div></section>
+    <section class="knowledge-home" aria-labelledby="reading-title"><div class="section-heading"><div><p class="eyebrow">从看见，到看懂</p><h2 class="heading-mark" id="reading-title">读懂一列火车背后的技术</h2></div><a href={url('principles/')}>浏览铁路原理</a></div><div class="reading-picks">{readingPicks.map(({data:a})=><a class="reading-pick" href={url(`${a.type==='principle'?'principles':'world'}/${a.slug}/`)}><RailDiagram kind={a.visual} compact/><div><p class="eyebrow">{a.eyebrow}</p><h3>{a.title}</h3><p>{a.summary}</p></div></a>)}</div><p class="reading-home-note">从车型档案出发，继续阅读 {articles.filter(a=>a.data.type==='principle').length} 篇原理图解与 {articles.filter(a=>a.data.type==='world').length} 篇世界铁路专题。<a href={url('world/')}>走进世界铁路</a></p></section>
+  </div>
+</Layout>

@@ -1,0 +1,30 @@
+---
+import {render,type CollectionEntry} from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import RailDiagram from './RailDiagram.astro';
+import ModelViewer from './ModelViewer';
+import {allTrains,allArticles} from '../lib/content';
+import {url} from '../lib/paths';
+interface Props {entry:CollectionEntry<'articles'>;}
+const {entry}=Astro.props;const article=entry.data;const {Content,headings}=await render(entry);
+const trains=await allTrains();const isPrinciple=article.type==='principle';const visual=article.visual||(isPrinciple?'wheels':'network');
+const modelTrain=trains.find(t=>t.slug===article.modelTrain&&t.model?.path);
+const hasGeneric=article.slug==='how-trains-turn';
+const related=(await allArticles()).filter(a=>a.data.type===article.type&&a.data.slug!==article.slug).slice(0,3);
+const minutes=Math.max(3,Math.ceil((entry.body?.replace(/https?:\/\/\S+/g,'').length||0)/350));
+const toc=headings.filter(h=>h.depth===2);
+---
+<Layout title={`${article.title} · 铁道图鉴`} description={article.summary}>
+  <article class="article-wrap knowledge-article">
+    <header class="article-header"><div class="breadcrumb"><a href={url()}>首页</a><span>/</span><a href={url(isPrinciple?'principles/':'world/')}>{isPrinciple?'铁路原理':'世界铁路'}</a><span>/</span><span>专题阅读</span></div><p class="eyebrow">{article.eyebrow}</p><h1 data-pagefind-meta="title">{article.title}</h1><p class="lead">{article.summary}</p><p class="reading-meta">约 {minutes} 分钟阅读 <span>·</span> {toc.length} 个知识段落 <span>·</span> 附原始资料</p></header>
+    {article.takeaways&&<section class="knowledge-summary" aria-label="阅读要点"><h2>先抓住这几个要点</h2><ul>{article.takeaways.map(item=><li>{item}</li>)}</ul></section>}
+    <figure class="article-diagram"><RailDiagram kind={visual}/><figcaption>概念图解 · 用于理解关系，不按工程比例绘制。<span class="diagram-scroll-hint">窄屏可横向滑动查看。</span></figcaption></figure>
+    <div class="article-reading-grid"><div class="prose"><Content/></div><aside class="reading-sidebar" data-pagefind-ignore><nav class="reading-toc" aria-label="本文目录"><h2>本文目录</h2><ol>{toc.map(h=><li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav><div class="reading-source-note"><strong>带着问题读资料</strong><p>参数需要放回具体车型、时间与工况中理解。正文中的来源链接和文末资料可供继续核对。</p></div></aside></div>
+    {(modelTrain||hasGeneric)&&<section class="article-model"><div class="section-heading"><h2 class="heading-mark">换个角度，观察列车</h2></div><p class="muted">{modelTrain?`以${modelTrain.fullName}观察外形与部件位置。模型不展示内部电路、制动过程或悬挂动力学。`:'旋转示意模型，寻找轮对和转向架。模型用于观察部件位置，不演示真实的曲线通过动力学。'}</p>
+      {modelTrain?<><ModelViewer client:visible src={modelTrain.model!.path!} mobileSrc={modelTrain.model!.mobilePath} bytes={modelTrain.model!.bytes} mobileBytes={modelTrain.model!.mobileBytes} poster={modelTrain.image} title={modelTrain.fullName}/><div class="media-credit"><span>{modelTrain.model!.author} · {modelTrain.model!.license} · 网页副本经过简化与压缩</span><a href={modelTrain.model!.sourceUrl} target="_blank" rel="noreferrer">原始模型</a></div></>:<><ModelViewer client:visible src="/models/rail-principle.glb" poster="/images/rail-principle.jpg" title="通用高速列车原理示意模型"/><div class="media-credit"><span>tevy.dev · CC0 1.0 · 通用列车，不代表实际车型</span><a href="https://tevy.dev/models/high-speed-train" target="_blank" rel="noreferrer">原始模型</a></div></>}
+    </section>}
+    <section class="article-sources"><h2>参考资料与延伸阅读</h2><ul class="source-list">{article.sources.map(s=><li><a href={s.url} target="_blank" rel="noreferrer">{s.title}</a></li>)}</ul><p class="source-date">内容核对：{article.updatedAt}。图解为本站绘制，参考资料的版权归原作者。</p></section>
+    <section class="article-related" aria-label="关联车型" data-pagefind-ignore>{article.relatedTrains.map(slug=>{const t=trains.find(t=>t.slug===slug);return t&&<a href={url(`trains/${slug}/`)}>{t.fullName}</a>;})}</section>
+    <section class="continue-reading" data-pagefind-ignore><h2 class="heading-mark">接着读懂一个问题</h2><div class="reading-links">{related.map(({data:a})=><a href={url(`${a.type==='principle'?'principles':'world'}/${a.slug}/`)}><span>{a.eyebrow}</span><strong>{a.title}</strong><p>{a.summary}</p></a>)}</div></section>
+  </article>
+</Layout>

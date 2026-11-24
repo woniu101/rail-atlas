@@ -1,0 +1,42 @@
+{
+  "generatedFrom": "src/**/* + shared UI characters + ASCII",
+  "requestedCodepoints": 1203,
+  "fonts": [
+    {
+      "file": "rail-serif.woff2",
+      "family": "Rail Serif",
+      "sourceFamily": "NotoSerifSC",
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/notoserifsc/NotoSerifSC%5Bwght%5D.ttf",
+      "sourceSha256": "050080d9255a86808f2945bffac582b31ef32bc36411ce29563b4961670c66f9",
+      "weightRange": [
+        700,
+        800
+      ],
+      "bytes": 373292,
+      "coveredCodepoints": 1202,
+      "missingCodepoints": [
+        "U+010C"
+      ],
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "OFL-NotoSerifSC.txt"
+    },
+    {
+      "file": "rail-sans.woff2",
+      "family": "Rail Sans",
+      "sourceFamily": "NotoSansSC",
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf",
+      "sourceSha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+      "weightRange": [
+        400,
+        500
+      ],
+      "bytes": 294160,
+      "coveredCodepoints": 1202,
+      "missingCodepoints": [
+        "U+010C"
+      ],
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "OFL-NotoSansSC.txt"
+    }
+  ]
+}

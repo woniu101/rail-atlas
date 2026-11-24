@@ -1,0 +1,12 @@
+---
+import type {Train} from '../data/trains';
+import Icon from './Icon.astro';
+import {asset,url} from '../lib/paths';
+interface Props {train:Train; eager?:boolean;}
+const {train,eager=false}=Astro.props;
+const render = !!train.model?.path || ['hxd3d','df4d','ss9','hxd3b'].includes(train.slug);
+---
+<a class:list={['train-card',{'is-render':render,'has-local-model':!!train.model?.path}]} href={url(`trains/${train.slug}/`)} data-category={train.category}>
+  <div class="card-visual"><img src={asset(train.image)} alt={train.fullName} loading={eager?'eager':'lazy'} width="640" height="420"/>{train.model?.path && <span class="badge model"><Icon name="cube" size={12}/>{train.model?.representation==='simplified'?'3D · 简化':'3D'}</span>}</div>
+  <div class="card-body"><div class="card-overline"><span>{train.code}</span><span>{train.period}</span></div><h3>{train.name}</h3><p class="card-desc">{train.categoryLabel} · {train.era}</p><div class="card-view"><span>探索这款车型</span><Icon name="chevron" size={15}/></div></div>
+</a>

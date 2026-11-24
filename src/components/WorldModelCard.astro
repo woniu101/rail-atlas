@@ -1,0 +1,10 @@
+---
+import type {CollectionEntry} from 'astro:content';
+import {asset,url} from '../lib/paths';
+interface Props {model:CollectionEntry<'worldModels'>['data'];}
+const {model}=Astro.props;
+---
+<a class="world-model-card" href={url(`world/models/${model.slug}/`)}>
+  <div class="model-card-image"><img src={asset(model.image)} alt={model.name} width="1000" height="450" loading="lazy"/><span class="badge">3D</span></div>
+  <div class="model-card-copy"><p class="eyebrow">{model.country}</p><h3>{model.code}</h3><p>{model.summary}</p></div>
+</a>

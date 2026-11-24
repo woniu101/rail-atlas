@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {timeline} from '../data/editorial';
+import {categoryLabels} from '../data/trains';
+import {url} from '../lib/paths';
+---
+<Layout title="沿着铁轨，看见时代 · 铁道图鉴" description="以代表车型、铁路工程与运营节点串联中国铁路发展，理解技术进步解决了什么问题。"><div class="container"><header class="page-intro"><div class="breadcrumb"><a href={url()}>首页</a><span>/</span><span>发展历程</span></div><p class="eyebrow">A JOURNEY THROUGH TIME</p><h1>沿着铁轨，看见时代。</h1><p>不只记住年份，也看见改变。沿着 {timeline.length} 个精选节点，理解牵引动力、线路工程与运输组织怎样一起向前。</p></header>
+<section class="history-context" aria-label="理解铁路发展的三个角度"><article><h2>动力怎样变化</h2><p>从锅炉和连杆，到柴油机、电动机与电力电子。变化的不只是速度，还有能量转换与维护方式。</p></article><article><h2>线路怎样支撑列车</h2><p>电气化、重载通道与高速专线，需要车辆、供电、轨道和信号共同适配。</p></article><article><h2>运输任务怎样改变</h2><p>长距离货运、繁忙客运和跨区域出行提出不同要求，技术路线因任务而异。</p></article></section>
+<aside class="history-note">蒸汽、内燃、电力与高速铁路长期并存。这里是精选节点，不是完整通史；试制、建成、开通和常态运营也不是同一件事。每项事件附有资料来源。</aside>
+<div class="timeline-page">{timeline.map((event,i)=><section class="timeline-event" id={timeline.findIndex(t=>t.era===event.era)===i?event.era:undefined}><span class="timeline-year">{event.year}</span><p class="eyebrow">{categoryLabels[event.era]}</p><h2>{event.title}</h2><p>{event.description}</p>{event.explanation&&<div class="timeline-meaning"><strong>这一步改变了什么</strong><p>{event.explanation}</p></div>}<div class="timeline-foot"><a class="timeline-source" href={event.source.url} target="_blank" rel="noreferrer">资料来源 · {event.source.title}</a>{event.related&&<a class="timeline-reading" href={url(event.related.href)}>{event.related.title}</a>}</div></section>)}</div></div></Layout>

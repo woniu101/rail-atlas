@@ -1,0 +1,14 @@
+---
+import {getCollection} from 'astro:content';
+import WorldModelCard from '../../components/WorldModelCard.astro';
+import Layout from '../../layouts/Layout.astro';
+import RailDiagram from '../../components/RailDiagram.astro';
+import {allArticles} from '../../lib/content';
+import {url} from '../../lib/paths';
+const models=await getCollection('worldModels',({data})=>data.status==='published');
+const order=['many-ways-to-high-speed','shinkansen-system','tgv-and-articulation','freight-and-axle-load','interoperability'];
+const articles=(await allArticles()).filter(a=>a.data.type==='world').sort((a,b)=>order.indexOf(a.data.slug)-order.indexOf(b.data.slug));
+---
+<Layout title="世界铁路 · 铁道图鉴" description="从新干线、TGV、重载运输到跨境互联，用有来源的专题比较世界铁路的技术选择。"><div class="container"><header class="page-intro"><div class="breadcrumb"><a href={url()}>首页</a><span>/</span><span>世界铁路</span></div><p class="eyebrow">RAILWAYS BEYOND BORDERS</p><h1>不同的铁路，同样的远方。</h1><p>不只比较谁跑得快。把列车放回它服务的网络，看线路、客流和运输任务怎样影响设计。</p></header>
+<section class="learning-path world-reading" aria-label="世界铁路专题说明"><div><strong>用同一组问题，看不同的铁路</strong><p>牵引设备放在哪里？怎样增加运输能力？跨越国境需要兼容什么？从系统选择出发，读懂外形背后的原因。</p></div><span class="catalog-count">{articles.length} 篇专题<br/>车辆 · 线路 · 运营</span></section>
+<section class="world-model-section" aria-labelledby="world-model-title"><div class="section-heading"><h2 class="heading-mark" id="world-model-title">世界机车展厅</h2><span class="catalog-count">{models.length} 款可交互模型</span></div><p class="world-model-intro">从德国快速客运蒸汽机车，到英国货运蒸汽机车与多国使用的内燃调车机车，换个角度观察不同运输任务。</p><div class="world-model-grid">{models.map(({data})=><WorldModelCard model={data}/>)}</div></section><div class="section-heading"><h2 class="heading-mark">沿着问题，继续阅读</h2></div><div class="article-list knowledge-catalog">{articles.map(({data:a})=><a class="article-card" href={url(`world/${a.slug}/`)}><div class="article-visual"><RailDiagram kind={a.visual||'network'} compact/></div><p class="eyebrow">{a.eyebrow}</p><h2>{a.title}</h2><p>{a.summary}</p><span class="text-link">阅读比较与案例</span></a>)}</div></div></Layout>

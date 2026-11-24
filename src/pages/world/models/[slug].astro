@@ -1,0 +1,20 @@
+---
+import {getCollection,render} from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import ModelViewer from '../../../components/ModelViewer';
+import WorldModelCard from '../../../components/WorldModelCard.astro';
+import {asset,url} from '../../../lib/paths';
+export async function getStaticPaths(){return (await getCollection('worldModels',({data})=>data.status==='published')).map(entry=>({params:{slug:entry.data.slug},props:{entry}}));}
+const {entry}=Astro.props;const train=entry.data;const {Content,headings}=await render(entry);
+const related=(await getCollection('worldModels',({data})=>data.status==='published'&&data.slug!==train.slug));
+---
+<Layout title={`${train.name} · 世界铁路 · 铁道图鉴`} description={train.summary}>
+ <article class="article-wrap knowledge-article world-model-detail">
+  <header class="article-header"><div class="breadcrumb"><a href={url()}>首页</a><span>/</span><a href={url('world/')}>世界铁路</a><span>/</span><span>{train.code}</span></div><p class="eyebrow">{train.country} · {train.category==='steam'?'蒸汽机车':'内燃机车'}</p><h1 data-pagefind-meta="title">{train.title}</h1><p class="lead">{train.summary}</p></header>
+  <section class="article-model" aria-label="交互模型"><ModelViewer client:only="react" studioLighting={true} src={train.model.path} mobileSrc={train.model.mobilePath} bytes={train.model.bytes} mobileBytes={train.model.mobileBytes} focusNodes={train.model.focusNodes} poster={train.image} title={train.name}><img slot="fallback" class="viewer-poster" src={asset(train.image)} alt={train.name} width="1000" height="450"/></ModelViewer><div class="media-credit"><span>{train.model.author} · {train.model.license} · 网页副本经过整理与压缩</span><a href={train.model.sourceUrl} target="_blank" rel="noreferrer">原始模型与署名</a></div><p class="model-scope">{train.category==='steam'?'展车包含机车与煤水车。':'低面数外形模型，用于观察车体与走行部。'}模型展示不代替具体车号、年代和改造状态的实车资料。</p></section>
+  <section class="knowledge-summary"><h2>观察之前，先知道这三点</h2><ul>{train.takeaways?.map(item=><li>{item}</li>)}</ul></section>
+  <div class="article-reading-grid"><div class="prose"><Content/></div><aside class="reading-sidebar"><nav class="reading-toc" aria-label="本文目录"><h2>本文目录</h2><ol>{headings.filter(h=>h.depth===2).map(h=><li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav><div class="reading-source-note"><strong>从外形走向原理</strong><p>先分清车轮、车轴和转向架，再沿能量路径理解牵引。</p><a href={url(train.category==='steam'?'principles/steam-power/':'principles/diesel-electric/')}>阅读对应动力原理</a></div></aside></div>
+  <section class="article-sources"><h2>实车资料与延伸阅读</h2><ul class="source-list">{train.sources.map(s=><li><a href={s.url} target="_blank" rel="noreferrer">{s.title}</a></li>)}</ul><div class="license-box">模型作者：{train.model.author}<br/><a href={train.model.licenseUrl} target="_blank" rel="noreferrer">{train.model.license}</a> · <a href={train.model.sourceUrl} target="_blank" rel="noreferrer">原始作品</a><br/>网页副本保留来源，进行了资源去重、贴图转换和压缩，手机副本适度简化。封面由本地模型实际渲染。</div><p class="source-date">资料核对：{train.updatedAt}</p></section>
+  <section class="continue-reading" data-pagefind-ignore><h2 class="heading-mark">继续观察世界铁路</h2><div class="world-model-grid">{related.map(({data})=><WorldModelCard model={data}/>)}</div></section>
+ </article>
+</Layout>

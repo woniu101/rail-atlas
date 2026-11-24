@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrainCard from '../../components/TrainCard.astro';
+import {allTrains} from '../../lib/content';
+import {categories} from '../../data/trains';
+import {url} from '../../lib/paths';
+const trains=await allTrains();
+---
+<Layout title="探索车型 · 铁道图鉴" description="从蒸汽机车、内燃机车到电力机车与动车组，按类别探索中国铁路车型。">
+  <div class="container"><header class="page-intro"><div class="breadcrumb"><a href={url()}>首页</a><span>/</span><span>探索车型</span></div><p class="eyebrow">THE COLLECTION</p><h1 data-pagefind-meta="title">从一辆车，认识铁路。</h1><p>听过的名字，见过的身影。沿着牵引方式与技术演进，找到你感兴趣的那一款。</p></header><div class="filters" role="group" aria-label="车型类别">{categories.map(c=><button class="filter" data-filter={c.id} aria-pressed={c.id==='all'}>{c.label}</button>)}</div><div class="index-meta"><span id="catalog-count" role="status" aria-live="polite">共 {trains.length} 款车型</span><span>按车型年代排列</span></div><div class="train-grid catalog-grid">{trains.map(train=><TrainCard train={train}/>)}</div><div class="empty-state" hidden><h2>还没有这一类车型</h2><p>换一个类别，继续探索。</p><button class="button secondary" data-clear-filter>查看全部车型</button></div></div>
+  <script>
+    const buttons=document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+    const cards=document.querySelectorAll<HTMLElement>('.catalog-grid [data-category]');
+    const valid=new Set(Array.from(buttons,b=>b.dataset.filter));
+    const apply=()=>{const value=new URL(location.href).searchParams.get('category');const category=value&&valid.has(value)?value:'all';let count=0;cards.forEach(card=>{card.hidden=category!=='all'&&card.dataset.category!==category;if(!card.hidden)count++;});buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===category)));const countEl=document.querySelector('#catalog-count');if(countEl)countEl.textContent=`共 ${count} 款车型`;const empty=document.querySelector<HTMLElement>('.empty-state');if(empty)empty.hidden=count>0;};
+    const change=(category:string)=>{const next=new URL(location.href);if(category==='all')next.searchParams.delete('category');else next.searchParams.set('category',category);history.pushState(null,'',next);apply();};
+    buttons.forEach(b=>b.addEventListener('click',()=>change(b.dataset.filter!)));document.querySelector('[data-clear-filter]')?.addEventListener('click',()=>change('all'));window.addEventListener('popstate',apply);apply();
+  </script>
+</Layout>

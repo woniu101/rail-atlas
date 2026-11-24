@@ -1,0 +1,30 @@
+---
+import {getCollection,render} from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import TrainCard from '../../components/TrainCard.astro';
+import Icon from '../../components/Icon.astro';
+import ModelViewer from '../../components/ModelViewer';
+import {allTrains,imageCredit} from '../../lib/content';
+import {asset,url} from '../../lib/paths';
+export async function getStaticPaths(){const entries=await getCollection('trains',({data})=>data.status==='published');return entries.map(entry=>({params:{slug:entry.data.slug},props:{entry}}));}
+const {entry}=Astro.props;const train=entry.data;const {Content,headings}=await render(entry);
+const trains=await allTrains();const related=trains.filter(t=>t.slug!==train.slug&&t.category===train.category).slice(0,3);const credit=imageCredit(train.slug);
+const isSimplified=train.model?.representation==='simplified';
+const isRender=!!train.model?.path||['hxd3d','df4d','ss9','hxd3b'].includes(train.slug);
+---
+<Layout title={`${train.fullName} · 铁道图鉴`} description={train.summary}>
+  <div class="container"><header class="page-intro"><div class="breadcrumb"><a href={url()}>首页</a><span>/</span><a href={url('trains/')}>探索车型</a><span>/</span><span>{train.name}</span></div><div class="detail-intro"><div><p class="detail-code">{train.code} · {train.period}</p><h1 data-pagefind-meta="title">{train.fullName}</h1><p class="detail-summary">{train.summary}</p></div><a class="detail-pill" href={url(`trains/?category=${train.category}`)}><Icon name="rail" size={16}/>{train.categoryLabel}</a></div><span class="sr-only">{train.aliases.join(' ')}</span></header>
+  <div class="detail-stage">
+    <div class="detail-visual">
+      <div class:list={['detail-media',{'is-render':isRender}]}>{train.model?.path?<ModelViewer client:only="react" src={train.model.path} mobileSrc={train.model.mobilePath} bytes={train.model.bytes} mobileBytes={train.model.mobileBytes} poster={train.image} title={isSimplified?`${train.fullName} · 简化${train.model?.scope||'模型'}`:train.fullName}><img slot="fallback" class="detail-image" src={asset(train.image)} alt={train.fullName} width="1000" height="450" fetchpriority="high"/></ModelViewer>:<img class="detail-image" src={asset(train.image)} alt={train.fullName} width="1200" height="600" fetchpriority="high"/>}</div>
+      <div class="media-credit"><span>{train.model?.path?(isSimplified?'简化交互模型':'交互模型'):isRender?'模型预览':'车型照片'} · {train.model?.path?train.model.author:credit?.author||'详见素材说明'} · {train.model?.path?train.model.license:credit?.license}</span><a href={url('about/#assets')}>查看素材来源与许可</a></div>
+      {isSimplified&&<p class="model-simplified-note">Rail Island 程序化简化重建 · 当前展示：{train.model?.scope||'外形模型'}。内部设备与比例细节不作为精确工程依据。</p>}
+      {train.model&&!train.model.path&&<p class="local-model-note"><Icon name="cube" size={17}/><span>静态模型预览</span><a href={train.model.sourceUrl} target="_blank" rel="noreferrer">在作者页面查看 3D</a></p>}
+    </div>
+    <aside class="specs-panel"><h2>车型档案</h2><p class="eyebrow">关键参数</p><dl>{train.specs.map(s=><div class="spec-row"><dt>{s.label}</dt><dd>{s.value}{s.note&&<small>{s.note}</small>}</dd></div>)}</dl></aside>
+  </div>
+  {train.takeaways&&<section class="knowledge-summary train-reading-points"><h2>认识这款车，先看三件事</h2><ul>{train.takeaways.map(item=><li>{item}</li>)}</ul></section>}
+  <div class="detail-story"><details class="train-mobile-toc"><summary>展开车型介绍目录</summary><nav aria-label="车型介绍目录"><ol>{headings.filter(h=>h.depth===2).map(h=><li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav></details><article class="prose"><Content/></article><aside class="detail-references"><nav class="reading-toc" aria-label="车型介绍目录"><h2>这一页讲什么</h2><ol>{headings.filter(h=>h.depth===2).map(h=><li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></nav>{train.relatedArticles&&<section class="train-related-reading"><h2>把车型与原理连起来</h2>{train.relatedArticles.map(link=><a href={url(link.href)}>{link.title}</a>)}</section>}<h2>资料来源</h2><ul class="source-list">{train.sources.map(s=><li><a href={s.url} target="_blank" rel="noreferrer">{s.title}</a></li>)}</ul>{train.model&&<div class="license-box"><strong>模型来源与署名</strong><br/>{train.model.author} · <a href={train.model.licenseUrl} target="_blank" rel="noreferrer">{train.model.license}</a><br/><a href={train.model.sourceUrl} target="_blank" rel="noreferrer">原始作品页面</a><br/>{train.model.path?(isSimplified?'原作者提供程序化简化重建；本站副本进行资源整理与压缩，原始导出文件另行备份。':'网页副本经过网格简化、贴图转换与 Meshopt 压缩；原始模型另行保留。'):isRender?'预览图经过裁切与页面亮度适配。':'本页照片与模型来源分别记录。'}</div>}</aside></div>
+  {related.length>0&&<section class="related-section" data-pagefind-ignore><div class="section-heading"><h2 class="heading-mark">继续探索</h2><a href={url(`trains/?category=${train.category}`)}>更多{train.categoryLabel}</a></div><div class="train-grid">{related.map(t=><TrainCard train={t}/>)}</div></section>}
+  </div>
+</Layout>

@@ -1,0 +1,842 @@
+{
+  "preparedAt": "2026-11-24",
+  "models": [
+    {
+      "slug": "hxd3d",
+      "sourceFile": "hxd3d_electric_locomotive_hxd3d.glb",
+      "originalBytes": 39806072,
+      "sha256": "e7da91ed9060ac4769df6aabac7ceda7b7ad9018aa64cb75961eae350695347c",
+      "author": "chinarailstory (https://sketchfab.com/chinarailstory)",
+      "sourceUrl": "https://sketchfab.com/3d-models/hxd3d-electric-locomotive-hxd3d-aa40849b8687426ea5da47deacb8c12f",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "before": {
+        "triangles": 903423,
+        "lines": 377865,
+        "meshes": 94,
+        "bounds": {
+          "min": [
+            -285.5914001464844,
+            5.314142227172908,
+            -363.1361083984375
+          ],
+          "max": [
+            619.9996337890625,
+            257.88265991210943,
+            -146.9942932128906
+          ]
+        }
+      },
+      "variants": [
+        {
+          "name": "desktop",
+          "path": "/models/hxd3d.glb",
+          "bytes": 4725424,
+          "triangles": 638592,
+          "lines": 0,
+          "meshes": 61,
+          "bounds": {
+            "min": [
+              -285.5852966308594,
+              5.314774745733175,
+              -296.87471279719745
+            ],
+            "max": [
+              619.9935302734375,
+              257.8754173429586,
+              -156.79919162174784
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "path": "/models/hxd3d.mobile.glb",
+          "bytes": 4031380,
+          "triangles": 476989,
+          "lines": 0,
+          "meshes": 61,
+          "bounds": {
+            "min": [
+              -285.5852966308594,
+              5.3216399042033515,
+              -296.87471279719745
+            ],
+            "max": [
+              619.9935302734375,
+              257.8754173429586,
+              -156.79919162174784
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "df4d",
+      "sourceFile": "df4ddf4d_diesel_locomotive.glb",
+      "originalBytes": 30837436,
+      "sha256": "30ac4a0145a7e9e8db8cdb50975ef50e7c5ccf3bbc3c9443dd03ee7bb7091535",
+      "author": "chinarailstory (https://sketchfab.com/chinarailstory)",
+      "sourceUrl": "https://sketchfab.com/3d-models/df4ddf4d-diesel-locomotive-9dbe2eb62f4b4e4eab7653721fcea748",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "before": {
+        "triangles": 664416,
+        "lines": 287336,
+        "meshes": 75,
+        "bounds": {
+          "min": [
+            -6.199986934661865,
+            -0.07704879343508274,
+            -214.17160034179685
+          ],
+          "max": [
+            846.1857299804688,
+            191.8705749511719,
+            -18.108570098876925
+          ]
+        }
+      },
+      "variants": [
+        {
+          "name": "desktop",
+          "path": "/models/df4d.glb",
+          "bytes": 4188664,
+          "triangles": 502731,
+          "lines": 0,
+          "meshes": 48,
+          "bounds": {
+            "min": [
+              -6.199986934661865,
+              -0.06906997707444873,
+              -164.1177001277546
+            ],
+            "max": [
+              846.1857299804688,
+              191.8705749511719,
+              -18.12304160198167
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "path": "/models/df4d.mobile.glb",
+          "bytes": 3825492,
+          "triangles": 421124,
+          "lines": 0,
+          "meshes": 48,
+          "bounds": {
+            "min": [
+              -6.199986934661865,
+              -0.06906997707444873,
+              -164.11710153414919
+            ],
+            "max": [
+              846.1857299804688,
+              191.8705749511719,
+              -18.123640195587086
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "ss9",
+      "sourceFile": "ss9_electric_locomotive_9.glb",
+      "originalBytes": 22558044,
+      "sha256": "4dc64d1cdd0aee30b85903e66ad83612eae9489d92ebb1d4504edffda2731f4e",
+      "author": "chinarailstory (https://sketchfab.com/chinarailstory)",
+      "sourceUrl": "https://sketchfab.com/3d-models/ss9-electric-locomotive-9-32f65c752b8c45adb3c3ed32461fff04",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "before": {
+        "triangles": 563545,
+        "lines": 689,
+        "meshes": 57,
+        "bounds": {
+          "min": [
+            0.0000022368162717611995,
+            7.564498039189151e-15,
+            -131.56260681152344
+          ],
+          "max": [
+            871.6881713867188,
+            200.44416809082034,
+            1.3208052408947638e-14
+          ]
+        }
+      },
+      "variants": [
+        {
+          "name": "desktop",
+          "path": "/models/ss9.glb",
+          "bytes": 3697956,
+          "triangles": 455048,
+          "lines": 0,
+          "meshes": 48,
+          "bounds": {
+            "min": [
+              0.0000022368162717611995,
+              0.0016698934199048665,
+              -131.56838710532674
+            ],
+            "max": [
+              871.6881713867188,
+              200.45013205899664,
+              0.005783527355319507
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "path": "/models/ss9.mobile.glb",
+          "bytes": 3456156,
+          "triangles": 410620,
+          "lines": 0,
+          "meshes": 48,
+          "bounds": {
+            "min": [
+              0.0000022368162717611995,
+              0.0016698934199048665,
+              -131.53610871914822
+            ],
+            "max": [
+              871.6881713867188,
+              200.4453592407812,
+              -0.026498092375206284
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hxd2",
+      "sourceFile": "hxd2_electric_locomotive_2.glb",
+      "originalBytes": 47175204,
+      "sha256": "fbd47b7e271c938584d7f6cb2dd8eb807137008fc3c556be5fce2732e8a1c57f",
+      "author": "chinarailstory (https://sketchfab.com/chinarailstory)",
+      "sourceUrl": "https://sketchfab.com/3d-models/hxd2-electric-locomotive-2-97847f39791e4292a4cbd837d9fbf6ba",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "before": {
+        "triangles": 1025560,
+        "lines": 407835,
+        "meshes": 69,
+        "bounds": {
+          "min": [
+            -60.63121795654297,
+            -1.851924402674829e-12,
+            -729.461181640625
+          ],
+          "max": [
+            62.0592155456543,
+            192.4344635009767,
+            723.2283935546875
+          ]
+        }
+      },
+      "variants": [
+        {
+          "name": "desktop",
+          "path": "/models/hxd2.glb",
+          "bytes": 5235232,
+          "triangles": 765125,
+          "lines": 0,
+          "meshes": 42,
+          "bounds": {
+            "min": [
+              -60.6458093482123,
+              -0.004257885993894206,
+              -729.461181640625
+            ],
+            "max": [
+              62.0595883027087,
+              192.40385179562304,
+              723.2283935546875
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "path": "/models/hxd2.mobile.glb",
+          "bytes": 4588292,
+          "triangles": 604696,
+          "lines": 0,
+          "meshes": 42,
+          "bounds": {
+            "min": [
+              -60.6554731999485,
+              -0.004257885993894206,
+              -729.461181640625
+            ],
+            "max": [
+              62.0595883027087,
+              192.40670648748102,
+              723.2283935546875
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hxd3b",
+      "sourceFile": "hxd3b_electric_locomotive__0001.glb",
+      "originalBytes": 31103748,
+      "sha256": "c7f3e74d95c17ee53894bc8cd203bc691fc27367095105095281eddec7308761",
+      "author": "chinarailstory (https://sketchfab.com/chinarailstory)",
+      "sourceUrl": "https://sketchfab.com/3d-models/hxd3b-electric-locomotive-0001-18323f9649504fe9bfe3c182845ca0fa",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "before": {
+        "triangles": 688241,
+        "lines": 299513,
+        "meshes": 74,
+        "bounds": {
+          "min": [
+            -455.0657958984375,
+            -6.4698823138965134e-9,
+            -67.40972137451172
+          ],
+          "max": [
+            450.783203125,
+            191.19212341308594,
+            65.92004394531251
+          ]
+        }
+      },
+      "variants": [
+        {
+          "name": "desktop",
+          "path": "/models/hxd3b.glb",
+          "bytes": 4104340,
+          "triangles": 546434,
+          "lines": 0,
+          "meshes": 45,
+          "bounds": {
+            "min": [
+              -455.0657958984375,
+              0.01264405352712572,
+              -67.42396536434262
+            ],
+            "max": [
+              450.783203125,
+              191.1808444765499,
+              65.9342879351434
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "path": "/models/hxd3b.mobile.glb",
+          "bytes": 3807920,
+          "triangles": 479212,
+          "lines": 0,
+          "meshes": 45,
+          "bounds": {
+            "min": [
+              -455.0657958984375,
+              0.01824233475277026,
+              -67.42877124725024
+            ],
+            "max": [
+              450.783203125,
+              191.1808444765499,
+              65.93909381805102
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "nd5",
+      "sourceFile": "nd5_diesel_locomotive_prc_ge_c36-7nd5.glb",
+      "originalBytes": 57612472,
+      "sha256": "3b0b3cbc6d7db47ac52548fa5cb19ee2eaf52d753b72205207e34a61bde1181e",
+      "author": "chinarailstory (https://sketchfab.com/chinarailstory)",
+      "sourceUrl": "https://sketchfab.com/3d-models/nd5-diesel-locomotive-prc-ge-c36-7nd5-4d4579615d0e485eb1fe57d3df39ab74",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "before": {
+        "triangles": 1102727,
+        "lines": 484425,
+        "meshes": 114,
+        "bounds": {
+          "min": [
+            -383.464599609375,
+            1.712035623360571e-8,
+            -59.9489402770996
+          ],
+          "max": [
+            373.7008056640625,
+            186.7989044189453,
+            72.04724121093751
+          ]
+        }
+      },
+      "variants": [
+        {
+          "name": "desktop",
+          "path": "/models/nd5.glb",
+          "bytes": 9935756,
+          "triangles": 865195,
+          "lines": 0,
+          "meshes": 84,
+          "bounds": {
+            "min": [
+              -383.464599609375,
+              -0.009847347263001183,
+              -59.92788852715282
+            ],
+            "max": [
+              373.7008056640625,
+              186.80209963316665,
+              72.02618946099074
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "path": "/models/nd5.mobile.glb",
+          "bytes": 9247856,
+          "triangles": 722323,
+          "lines": 0,
+          "meshes": 84,
+          "bounds": {
+            "min": [
+              -383.464599609375,
+              -0.009847347263001183,
+              -59.92788852715282
+            ],
+            "max": [
+              373.7008056640625,
+              186.80209963316665,
+              72.02618946099074
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "drb-01-10",
+      "sourceFile": "drb_01.10_steam_locomotive_low_poly.glb",
+      "originalBytes": 5091220,
+      "sha256": "9d34050fb230bcc12d62551acbfd20faa373e9efee509522d6ae5931c1fe0b9f",
+      "author": "Götz von Berlichingen (https://sketchfab.com/vonBerlichingen)",
+      "sourceUrl": "https://sketchfab.com/3d-models/drb-0110-steam-locomotive-low-poly-b4e4252632f44492b6c018627a6b4a60",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "before": {
+        "triangles": 36359,
+        "lines": 0,
+        "meshes": 8,
+        "bounds": {
+          "min": [
+            -204.572096824646,
+            -212.71087028358556,
+            -12489.888406491424
+          ],
+          "max": [
+            214.65789890289307,
+            295.8249906254937,
+            1609.1920378444138
+          ]
+        }
+      },
+      "variants": [
+        {
+          "name": "desktop",
+          "path": "/models/drb-01-10.glb",
+          "bytes": 896796,
+          "triangles": 36359,
+          "lines": 0,
+          "meshes": 8,
+          "bounds": {
+            "min": [
+              -204.59145754381274,
+              -212.81296442225138,
+              -12489.888406491842
+            ],
+            "max": [
+              214.2619016936174,
+              295.82339076675123,
+              1609.1920378440818
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "path": "/models/drb-01-10.mobile.glb",
+          "bytes": 862440,
+          "triangles": 31111,
+          "lines": 0,
+          "meshes": 8,
+          "bounds": {
+            "min": [
+              -204.59145754381274,
+              -212.81296442225138,
+              -12489.888406491842
+            ],
+            "max": [
+              214.2619016936174,
+              295.82339076675123,
+              1609.1920378440818
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "lms-fowler-4f",
+      "sourceFile": "lms_fowler_4f.glb",
+      "originalBytes": 3481408,
+      "sha256": "42359892ca5c11e8dd9a6ad15d45f257c0ce816c21014be624f0a9ebe8a5585f",
+      "author": "Steve Emfore (https://sketchfab.com/steve_Emfore)",
+      "sourceUrl": "https://sketchfab.com/3d-models/lms-fowler-4f-b84f7a5079d343ea83b35cb10517565e",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "before": {
+        "triangles": 36992,
+        "lines": 0,
+        "meshes": 9,
+        "bounds": {
+          "min": [
+            -10.656120014648437,
+            -0.10135999446868893,
+            -1.2969299554824827
+          ],
+          "max": [
+            5.482749938964844,
+            4.035120010375977,
+            1.2986600399017336
+          ]
+        }
+      },
+      "variants": [
+        {
+          "name": "desktop",
+          "path": "/models/lms-fowler-4f.glb",
+          "bytes": 470552,
+          "triangles": 30280,
+          "lines": 0,
+          "meshes": 5,
+          "bounds": {
+            "min": [
+              -10.656120014648437,
+              -0.10138433638477518,
+              -1.2969006319709169
+            ],
+            "max": [
+              5.482749938964844,
+              4.03482088228832,
+              1.2986307163901678
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "path": "/models/lms-fowler-4f.mobile.glb",
+          "bytes": 371792,
+          "triangles": 29036,
+          "lines": 0,
+          "meshes": 5,
+          "bounds": {
+            "min": [
+              -10.656120014648437,
+              -0.10138433638477518,
+              -1.2969006319709169
+            ],
+            "max": [
+              5.482749938964844,
+              4.03482088228832,
+              1.2986307163901678
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "chme3",
+      "sourceFile": "train__locomotive_low-poly_locomotive.glb",
+      "originalBytes": 1495724,
+      "sha256": "c2b1a03a6e065133973121e33d02f8ea525e9cfb13dd5cfd552df4f35136ab90",
+      "author": "Nikcore (https://sketchfab.com/nikcore76)",
+      "sourceUrl": "https://sketchfab.com/3d-models/train-locomotive-low-poly-locomotive-0eea1fa85cfa40769ce8e0cbb98e1d05",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "before": {
+        "triangles": 24693,
+        "lines": 0,
+        "meshes": 204,
+        "bounds": {
+          "min": [
+            -1.358974408415646,
+            -9.835538640030716e-15,
+            -12.948718681931496
+          ],
+          "max": [
+            1.5641026740654935,
+            4.1610257811515705,
+            3.384615527362161
+          ]
+        }
+      },
+      "variants": [
+        {
+          "name": "desktop",
+          "path": "/models/chme3.glb",
+          "bytes": 176288,
+          "triangles": 24693,
+          "lines": 0,
+          "meshes": 204,
+          "bounds": {
+            "min": [
+              -1.3589497588493242,
+              0.0000163024866846051,
+              -12.948777371376119
+            ],
+            "max": [
+              1.5640780244991714,
+              4.161041979438464,
+              3.384653685282316
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "path": "/models/chme3.mobile.glb",
+          "bytes": 176160,
+          "triangles": 24661,
+          "lines": 0,
+          "meshes": 204,
+          "bounds": {
+            "min": [
+              -1.3589497588493242,
+              0.0000163024866846051,
+              -12.948777371376119
+            ],
+            "max": [
+              1.5640780244991714,
+              4.161041979438464,
+              3.384653685282316
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "qj",
+      "sourceFile": "railisland-qj.glb",
+      "originalBytes": 1085452,
+      "sha256": "fd8e7cbb58d590e1d9c3786200a0c7048b57c055a55dbf7932cbd834179b8792",
+      "author": "Rail Island",
+      "sourceUrl": "https://factory.railisland.com/model/proc-vehicle-cr-qj/",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "representation": "procedural-simplified-reconstruction",
+      "creditEvidence": "Official source page and catalog.json; credit metadata added only to derived files.",
+      "preparedAt": "2026-11-24",
+      "before": {
+        "triangles": 13681,
+        "lines": 0,
+        "meshes": 73,
+        "bounds": {
+          "min": [
+            -8.699999809265137,
+            -5.975376748956762e-9,
+            -1.6200000047683716
+          ],
+          "max": [
+            8.069999694824219,
+            4.817320346832275,
+            1.6200000047683716
+          ]
+        }
+      },
+      "variants": [
+        {
+          "name": "desktop",
+          "path": "/models/qj.glb",
+          "bytes": 188272,
+          "triangles": 9305,
+          "lines": 0,
+          "meshes": 61,
+          "bounds": {
+            "min": [
+              -8.700113704480545,
+              -0.000032361433164096454,
+              -1.6200000047683716
+            ],
+            "max": [
+              8.069999694824219,
+              4.817486893119045,
+              1.6200000047683716
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "path": "/models/qj.mobile.glb",
+          "bytes": 188232,
+          "triangles": 9293,
+          "lines": 0,
+          "meshes": 61,
+          "bounds": {
+            "min": [
+              -8.700113704480545,
+              -0.000032361433164096454,
+              -1.6200000047683716
+            ],
+            "max": [
+              8.069999694824219,
+              4.817486893119045,
+              1.6200000047683716
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "crh380a",
+      "sourceFile": "railisland-crh380a.glb",
+      "originalBytes": 1158220,
+      "sha256": "a28003eca918c0dbcdae1adf2dea18b573d9a7f1df76b76363b386df621963d0",
+      "author": "Rail Island",
+      "sourceUrl": "https://factory.railisland.com/model/proc-vehicle-cr-crh380a/",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "representation": "procedural-simplified-reconstruction",
+      "creditEvidence": "Official source page and catalog.json; credit metadata added only to derived files.",
+      "preparedAt": "2026-11-24",
+      "before": {
+        "triangles": 15675,
+        "lines": 0,
+        "meshes": 35,
+        "bounds": {
+          "min": [
+            -13.25,
+            -1.1920928966180355e-8,
+            -1.6456695795059204
+          ],
+          "max": [
+            13.25,
+            3.700000047683716,
+            1.6456695795059204
+          ]
+        }
+      },
+      "variants": [
+        {
+          "name": "desktop",
+          "path": "/models/crh380a.glb",
+          "bytes": 239580,
+          "triangles": 14627,
+          "lines": 0,
+          "meshes": 32,
+          "bounds": {
+            "min": [
+              -13.249997093273548,
+              0.000036897198483099025,
+              -1.6453077963165657
+            ],
+            "max": [
+              13.249963287282412,
+              3.6999061119604812,
+              1.6453077963165657
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "path": "/models/crh380a.mobile.glb",
+          "bytes": 236024,
+          "triangles": 13956,
+          "lines": 0,
+          "meshes": 32,
+          "bounds": {
+            "min": [
+              -13.249997093273548,
+              0.000036897198483099025,
+              -1.6453077963165657
+            ],
+            "max": [
+              13.249963287282412,
+              3.6999061119604812,
+              1.6453077963165657
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "cr400af",
+      "sourceFile": "railisland-cr400af.glb",
+      "originalBytes": 1070404,
+      "sha256": "8f7f187314f0d45588134f3d3c19cab235ac7899e83659a17948003527e12598",
+      "author": "Rail Island",
+      "sourceUrl": "https://factory.railisland.com/model/proc-vehicle-cr-cr400af/",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "representation": "procedural-simplified-reconstruction",
+      "creditEvidence": "Official source page and catalog.json; credit metadata added only to derived files.",
+      "preparedAt": "2026-11-24",
+      "before": {
+        "triangles": 14443,
+        "lines": 0,
+        "meshes": 37,
+        "bounds": {
+          "min": [
+            -13.800000190734863,
+            3.814697280279944e-9,
+            -1.6365691423416138
+          ],
+          "max": [
+            13.729999542236328,
+            4.050000190734863,
+            1.6365691423416138
+          ]
+        }
+      },
+      "variants": [
+        {
+          "name": "desktop",
+          "path": "/models/cr400af.glb",
+          "bytes": 211332,
+          "triangles": 13395,
+          "lines": 0,
+          "meshes": 34,
+          "bounds": {
+            "min": [
+              -13.799996807171253,
+              -0.00010806075373809287,
+              -1.6361238473385848
+            ],
+            "max": [
+              13.729999542236328,
+              4.050089880977343,
+              1.6361238473385848
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "path": "/models/cr400af.mobile.glb",
+          "bytes": 207520,
+          "triangles": 12644,
+          "lines": 0,
+          "meshes": 34,
+          "bounds": {
+            "min": [
+              -13.799996807171253,
+              -0.00010806075373809287,
+              -1.6361238473385848
+            ],
+            "max": [
+              13.729999542236328,
+              4.050089880977343,
+              1.6361238473385848
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

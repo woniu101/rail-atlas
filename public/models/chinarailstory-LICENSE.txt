@@ -1,0 +1,15 @@
+Six locomotive models by chinarailstory
+Author: https://sketchfab.com/chinarailstory
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+Sources:
+HXD3D: https://sketchfab.com/3d-models/hxd3d-electric-locomotive-hxd3d-aa40849b8687426ea5da47deacb8c12f
+DF4D: https://sketchfab.com/3d-models/df4ddf4d-diesel-locomotive-9dbe2eb62f4b4e4eab7653721fcea748
+SS9: https://sketchfab.com/3d-models/ss9-electric-locomotive-9-32f65c752b8c45adb3c3ed32461fff04
+HXD2: https://sketchfab.com/3d-models/hxd2-electric-locomotive-2-97847f39791e4292a4cbd837d9fbf6ba
+HXD3B: https://sketchfab.com/3d-models/hxd3b-electric-locomotive-0001-18323f9649504fe9bfe3c182845ca0fa
+ND5: https://sketchfab.com/3d-models/nd5-diesel-locomotive-prc-ge-c36-7nd5-4d4579615d0e485eb1fe57d3df39ab74
+
+Modified web copies: deduplication, welding, mesh simplification, removal of auxiliary edge lines, WebP textures and Meshopt compression. Desktop and mobile variants. Original GLB metadata is retained. Preview JPGs are renders of these web copies.
+Prepared on 2026-11-23. No endorsement by the original author is implied.

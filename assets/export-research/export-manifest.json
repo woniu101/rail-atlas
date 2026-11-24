@@ -1,0 +1,96 @@
+{
+  "note": "Raw GLBs exported from author-published CC0 procedural models with the official default-build + GLTFExporter workflow; original exports are not optimized.",
+  "upstreamRepository": "https://github.com/rail-island/rail-island-factory",
+  "upstreamTree": "71da8d178338fa67d8c732e6109abc2c4bb075c5",
+  "models": [
+    {
+      "slug": "qj",
+      "sourceUrl": "https://factory.railisland.com/js/proc-vehicle-cr-qj.js",
+      "modelUrl": "https://factory.railisland.com/model/proc-vehicle-cr-qj/",
+      "author": "Rail Island",
+      "license": "CC0 1.0",
+      "sourceSha256": "798608c79b90436f54a8fecc17535cbfd9d654ce0e61b05ca460d93406752d69",
+      "params": {
+        "unit": "locomotive"
+      },
+      "lod": false,
+      "exportOptions": {
+        "binary": true,
+        "animations": true
+      },
+      "exporter": "187",
+      "bytes": 1085452,
+      "sha256": "fd8e7cbb58d590e1d9c3786200a0c7048b57c055a55dbf7932cbd834179b8792",
+      "triangles": 13681,
+      "dimensions": [
+        16.769999504089355,
+        4.817320352807652,
+        3.240000009536743
+      ],
+      "date": "2026-11-24"
+    },
+    {
+      "slug": "cr400af",
+      "sourceUrl": "https://factory.railisland.com/js/proc-vehicle-cr-cr400af.js",
+      "modelUrl": "https://factory.railisland.com/model/proc-vehicle-cr-cr400af/",
+      "author": "Rail Island",
+      "license": "CC0 1.0",
+      "sourceSha256": "be0b51f40d6fd01ddeff4c490eaf80ad233e000b7ea867f68fca01e3b54c2301",
+      "params": {
+        "unit": "endCar",
+        "cars": "4",
+        "livery": "red"
+      },
+      "lod": false,
+      "exportOptions": {
+        "binary": true,
+        "animations": true
+      },
+      "exporter": "187",
+      "bytes": 1070404,
+      "sha256": "8f7f187314f0d45588134f3d3c19cab235ac7899e83659a17948003527e12598",
+      "triangles": 15291,
+      "dimensions": [
+        27.52999973297119,
+        4.050000186920166,
+        3.2731382846832275
+      ],
+      "date": "2026-11-24"
+    },
+    {
+      "slug": "crh380a",
+      "sourceUrl": "https://factory.railisland.com/js/proc-vehicle-cr-crh380a.js",
+      "modelUrl": "https://factory.railisland.com/model/proc-vehicle-cr-crh380a/",
+      "author": "Rail Island",
+      "license": "CC0 1.0",
+      "sourceSha256": "207fa63d911ca85b77dc32621c4d767c2605eb5039b639e2915e5fb724bdfcb3",
+      "params": {
+        "unit": "endCar",
+        "cars": "4"
+      },
+      "lod": false,
+      "exportOptions": {
+        "binary": true,
+        "animations": true
+      },
+      "exporter": "187",
+      "bytes": 1158224,
+      "sha256": "ecfb81187e7a96f28e02f8045bec344724ce5ba59521821f2dede7714ee0cb6e",
+      "triangles": 16403,
+      "dimensions": [
+        26.5,
+        3.700000059604645,
+        3.291339159011841
+      ],
+      "date": "2026-11-24",
+      "browserComparison": {
+        "bytes": 1158220,
+        "nodeCount": 40,
+        "generatedNodeCount": 40,
+        "meshCount": 35,
+        "generatedMeshCount": 35,
+        "accessorCountsMatch": true
+      }
+    }
+  ]
+}

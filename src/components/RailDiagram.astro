@@ -1,0 +1,64 @@
+---
+import WheelDiagram from './WheelDiagram.astro';
+interface Props {kind?:string; compact?:boolean;}
+const {kind='network',compact=false}=Astro.props;
+const titles:Record<string,string>={power:'电从接触网到车轮',traction:'柴油机与电力传动',braking:'列车怎样把速度降下来',bogies:'车体、悬挂与轮对',steam:'热能怎样变成机械运动',signals:'列车之间如何保持间隔',highspeed:'高速铁路是一整套系统',articulation:'两种车体与转向架布局',freight:'重载运输的系统取舍',interoperability:'跨境列车要兼容什么',network:'不同的动力布局'};
+const title=titles[kind]||titles.network;
+---
+<div class:list={['rail-diagram',{'is-compact':compact}]}>
+{kind==='wheels'?<WheelDiagram/>:<svg viewBox="0 0 800 300" role="img" aria-label={`${title}，简化关系示意，不按工程比例`}>
+  <title>{title} · 简化关系示意</title>
+  <g class="diagram-lines" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  {['power','traction','steam'].includes(kind)&&<>
+    <path d="M105 124h120m80 0h120m80 0h120" stroke-dasharray="7 7"/>
+    {[25,225,425,625].map(x=><rect x={x} y="91" width="150" height="66" rx="4" class="diagram-box"/>)}
+    {kind==='power'&&<><path d="M68 47h660m-348 0-23 22 23 20 23-20-23-22"/><path d="M400 187v35h240" stroke-dasharray="6 7"/><path d="M654 208v28m-12-22 12-8 12 8"/><text x="400" y="265" class="diagram-subtext">以交流传动电力机车为例 · 回流经过车轮与钢轨</text></>}
+    {kind==='traction'&&<><path d="M36 204h730"/><path d="m685 179 18-14 20 14m-160-3v-11h50v11"/><text x="400" y="265" class="diagram-subtext">柴油机提供能量 · 电动机驱动车轴 · 不依赖接触网</text></>}
+    {kind==='steam'&&<><path d="m350 49 12-18m10 18 12-18m10 18 12-18"/><path d="M475 212h100m-20-14 20 14-20 14"/><text x="400" y="265" class="diagram-subtext">锅炉产生蒸汽 · 蒸汽在汽缸内做功 · 连杆传递运动</text></>}
+    <g class="diagram-text" fill="currentColor" stroke="none" text-anchor="middle">
+      {(kind==='power'?['接触网','受电弓','变压与变流','牵引电动机']:kind==='traction'?['燃油 / 柴油机','发电机','电能调节','牵引电动机']:kind==='steam'?['煤与水','锅炉 / 蒸汽','汽缸 / 活塞','连杆 / 动轮']:['列车动能','摩擦制动','电制动','热量 / 电能']).map((label,i)=><text x={100+200*i} y="131">{label}</text>)}
+    </g>
+  </>}
+  {kind==='braking'&&<>
+    <rect x="30" y="115" width="150" height="70" rx="4" class="diagram-box"/>
+    <rect x="310" y="45" width="160" height="65" rx="4" class="diagram-box"/>
+    <rect x="310" y="190" width="160" height="65" rx="4" class="diagram-box"/>
+    <rect x="605" y="45" width="165" height="65" rx="4" class="diagram-box"/>
+    <rect x="605" y="190" width="165" height="65" rx="4" class="diagram-box"/>
+    <path d="M180 150h65V78h65m-65 72v72h65m160-144h135m-135 145h135" stroke-dasharray="6 7"/>
+    <g class="diagram-text" fill="currentColor" stroke="none" text-anchor="middle"><text x="105" y="157">列车动能</text><text x="390" y="85">摩擦制动</text><text x="390" y="230">电制动</text><text x="687" y="85">热量</text><text x="687" y="230">回收或耗散</text></g>
+    <text x="400" y="152" class="diagram-subtext">制动控制系统协调两条能量路径</text>
+  </>}
+  {kind==='bogies'&&<>
+    <rect x="100" y="35" width="600" height="60" rx="6" class="diagram-box"/>
+    {[180,540].map(x=><><path d={`M${x} 97v18l-8 8 16 12-16 12 8 8v12m80-70v18l-8 8 16 12-16 12 8 8v12`}/><rect x={x-40} y="169" width="160" height="23" rx="5"/><circle cx={x-15} cy="216" r="23"/><circle cx={x+95} cy="216" r="23"/><path d={`M${x-15} 192v-22m110 22v-22`}/></>)}
+    <path d="M50 243h700"/><path d="M710 65h40m-75 65h75m-75 51h75" stroke-dasharray="5 6"/>
+    <g class="diagram-text" fill="currentColor" stroke="none"><text x="400" y="74" text-anchor="middle">车体</text><text x="399" y="140" text-anchor="middle">悬挂允许受控相对运动</text><text x="400" y="280" text-anchor="middle">构架与轮对共同承载、导向 · 结构随车型变化</text></g>
+  </>}
+  {kind==='signals'&&<>
+    <path d="M40 180h720m-720 12h720"/>
+    {[40,280,520,760].map(x=><path d={`M${x} 102v115`} stroke-dasharray="4 6"/>)}
+    <rect x="52" y="104" width="210" height="66" rx="5" class="diagram-box diagram-accent"/><rect x="531" y="104" width="210" height="66" rx="5" class="diagram-box"/>
+    <g class="diagram-text" fill="currentColor" stroke="none" text-anchor="middle"><text x="157" y="145">后续列车</text><text x="400" y="147">间隔与制动距离</text><text x="636" y="145">前方列车</text><text x="400" y="65">检测位置 · 计算许可 · 监督速度</text><text x="400" y="264" class="diagram-subtext">固定闭塞概念示意 · 真实系统的分区、许可和保护规则更复杂</text></g>
+  </>}
+  {['network','articulation'].includes(kind)&&<>
+    {[75,245,415,585].map((x,i)=><><rect x={x} y="65" width="140" height="54" rx="4" class:list={['diagram-box',{'diagram-accent':i===0||i===3}]}/><circle cx={x+28} cy="134" r="13"/><circle cx={x+110} cy="134" r="13"/></>)}
+    {kind==='articulation'?<>{[110,255,400,545].map(x=><rect x={x} y="194" width="140" height="45" rx="3" class="diagram-box"/>)}{[110,255,400,545,685].map(x=><circle cx={x} cy="251" r="12"/>)}</>:<>{[75,245,415,585].map(x=><><rect x={x} y="194" width="140" height="54" rx="4" class="diagram-box"/><rect x={x+35} y="252" width="70" height="15" class="diagram-accent"/></>)}</>}
+    <g class="diagram-text" fill="currentColor" stroke="none" text-anchor="middle"><text x="400" y="39">{kind==='articulation'?'每节车体下设置转向架':'动力集中：牵引设备集中在动力车'}</text><text x="400" y="182">{kind==='articulation'?'铰接布局：部分相邻车体共享转向架':'动力分散：牵引设备分布在多辆车上'}</text></g>
+  </>}
+  {kind==='highspeed'&&<>
+    <rect x="282" y="103" width="236" height="80" rx="5" class="diagram-box diagram-accent"/>
+    {[['线路',140,58],['车辆',660,58],['信号',140,235],['维护与调度',660,235]].map(([label,x,y])=><><rect x={Number(x)-92} y={Number(y)-25} width="184" height="50" rx="4" class="diagram-box"/><path d={`M${x} ${Number(y)<100?83:210} 400 143`} stroke-dasharray="6 7"/><text x={x} y={Number(y)+7} fill="currentColor" stroke="none" text-anchor="middle" class="diagram-text">{label}</text></>)}
+    <rect x="282" y="103" width="236" height="80" rx="5" class="diagram-box"/><text x="400" y="151" fill="currentColor" stroke="none" text-anchor="middle" class="diagram-text">协同工作的高速系统</text>
+  </>}
+  {kind==='freight'&&<>
+    {[65,240,415,590].map(x=><><path d={`M${x} 90h145v85H${x}Z`} class="diagram-box"/><path d={`M${x+15} 90v85m115-85v85m-98 18h83`}/><circle cx={x+30} cy="198" r="19"/><circle cx={x+115} cy="198" r="19"/></>)}<path d="M40 219h720"/>
+    <g class="diagram-text" fill="currentColor" stroke="none" text-anchor="middle"><text x="400" y="49">每轴承载 · 列车长度 · 线路强度 · 制动与牵引</text><text x="400" y="276" class="diagram-subtext">提高运输能力，需要车辆、轨道、桥梁与运营组织共同配合</text></g>
+  </>}
+  {kind==='interoperability'&&<>
+    {[['轨距',50],['供电',245],['信号',440],['限界与规则',635]].map(([label,x])=><><rect x={x} y="78" width="115" height="115" rx="5" class="diagram-box"/><path d={`M${Number(x)+115} 135h80`} stroke-dasharray="6 7"/><text x={Number(x)+57} y="144" fill="currentColor" stroke="none" text-anchor="middle" class="diagram-text">{label}</text></>)}
+    <text x="400" y="259" fill="currentColor" stroke="none" text-anchor="middle" class="diagram-subtext">轨道连通只是开始 · 车辆与基础设施的接口必须相容</text>
+  </>}
+  </g>
+</svg>}
+</div>

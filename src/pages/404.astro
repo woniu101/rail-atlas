@@ -1,0 +1,5 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {url} from '../lib/paths';
+---
+<Layout title="这段轨道暂未铺就 · 铁道图鉴" noindex><section class="container error-page"><p class="error-code">404</p><h1>这段轨道，暂未铺就。</h1><p>页面可能已移动。换一条路线，继续探索铁路故事。</p><div class="error-links"><a class="button" href={url()}>回到首页</a><a class="button secondary" href={url('trains/')}>探索车型</a></div></section></Layout>

@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import {url} from '../lib/paths';
+---
+<Layout title="搜索车型与文章 · 铁道图鉴" noindex><div class="container" data-pagefind-ignore="all"><header class="page-intro"><div class="breadcrumb"><a href={url()}>首页</a><span>/</span><span>搜索</span></div><p class="eyebrow">FIND YOUR NEXT DISCOVERY</p><h1>你想认识哪一列火车？</h1><p>输入车型代号、中文名称，或一个你感兴趣的铁路问题。</p></header><form class="search-form" role="search"><label class="search-input-wrap"><Icon name="search"/><span class="sr-only">搜索车型或文章</span><input class="search-input" type="search" name="q" id="search-input" placeholder="试试 HXD3D、韶山9、转向架…" autocomplete="off" maxlength="120"/></label><button class="button" type="submit">搜索</button></form><p class="search-help">支持车型代号与中文别名；按 Enter 开始搜索。</p><div class="search-suggestions" style="margin-bottom:28px">{['复兴号','韶山9','东风4D','转向架'].map(q=><a href={`${url('search/')}?q=${encodeURIComponent(q)}`}>{q}</a>)}</div><p class="search-status" role="status" aria-live="polite" id="search-status">输入关键词，开启下一次探索。</p><div class="search-results" id="search-results"></div></div>
+<script>
+  import {url} from '../lib/paths';
+  type PFResult={id:string;data:()=>Promise<{url:string;meta:{title?:string};excerpt:string}>};
+  type PF={search:(q:string)=>Promise<{results:PFResult[]}>;init:()=>Promise<void>;options:(options:{baseUrl:string})=>Promise<void>};
+  let engine:Promise<PF>|undefined;let request=0;
+  const input=document.querySelector<HTMLInputElement>('#search-input')!;const status=document.querySelector<HTMLElement>('#search-status')!;const results=document.querySelector<HTMLElement>('#search-results')!;
+  const run=async()=>{const q=input.value.trim();const id=++request;results.replaceChildren();if(!q){status.textContent='输入关键词，开启下一次探索。';return;}status.textContent=`正在搜索“${q}”…`;
+    try{engine??=import(/* @vite-ignore */url('pagefind/pagefind.js')).then(async(m:PF)=>{await m.options({baseUrl:url()});await m.init();return m;});const pf=await engine;const response=await pf.search(q);const items=await Promise.all(response.results.slice(0,20).map(r=>r.data()));if(id!==request)return;status.textContent=response.results.length?`找到 ${response.results.length} 项相关内容`:`没有找到“${q}”，试试车型代号或更短的关键词。`;
+      items.forEach(item=>{const entry=document.createElement('article');entry.className='search-result';const type=document.createElement('span');type.className='result-type';type.textContent=item.url.includes('/trains/')?'车型档案':item.url.includes('/principles/')?'铁路原理':item.url.includes('/world/')?'世界铁路':'铁路图鉴';const h=document.createElement('h2');const a=document.createElement('a');a.href=item.url;a.textContent=item.meta.title||'铁路图鉴';h.append(a);const p=document.createElement('p');const parsed=new DOMParser().parseFromString(item.excerpt,'text/html');p.textContent=parsed.body.textContent;entry.append(type,h,p);results.append(entry);});
+    }catch{if(id!==request)return;engine=undefined;status.textContent=import.meta.env.DEV?'开发模式暂未生成搜索索引。请运行 pnpm build 和 pnpm preview 后使用搜索。':'搜索索引暂时未能加载，请重新搜索。';}
+  };
+  const read=()=>{input.value=new URL(location.href).searchParams.get('q')||'';void run();};
+  document.querySelector('.search-form')?.addEventListener('submit',e=>{e.preventDefault();const next=new URL(location.href);if(input.value.trim())next.searchParams.set('q',input.value.trim());else next.searchParams.delete('q');history.pushState(null,'',next);void run();});window.addEventListener('popstate',read);read();input.focus();
+</script>
+</Layout>

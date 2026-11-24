@@ -1,0 +1,23 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+*.log
+public/models/originals/
+assets/source-models/*.glb
+model-backups/*.glb
+test-results/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+__pycache__/
+*.pyc
+# Keep reproducible published generators and provenance; research downloads stay local.
+assets/export-research/*
+!assets/export-research/README.md
+!assets/export-research/LICENSE
+!assets/export-research/export-manifest.json
+!assets/export-research/published/

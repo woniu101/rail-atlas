@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RailDiagram from '../../components/RailDiagram.astro';
+import {allArticles} from '../../lib/content';
+import {url} from '../../lib/paths';
+const order=['how-trains-turn','bogies-and-suspension','steam-power','diesel-electric','pantograph-and-power','train-brakes','signals-and-blocks'];
+const articles=(await allArticles()).filter(a=>a.data.type==='principle').sort((a,b)=>order.indexOf(a.data.slug)-order.indexOf(b.data.slug));
+---
+<Layout title="铁路原理 · 铁道图鉴" description="从轮轨、转向架到牵引供电、制动与闭塞，用图解、实车观察和原始资料理解铁路。"><div class="container"><header class="page-intro"><div class="breadcrumb"><a href={url()}>首页</a><span>/</span><span>铁路原理</span></div><p class="eyebrow">HOW RAILWAYS WORK</p><h1>看见火车，也看懂火车。</h1><p>它怎样转弯、从哪里获得动力，又怎样停下来？从日常观察出发，把一列火车拆成可以理解的问题。</p></header>
+<section class="learning-path" aria-label="原理阅读路线"><div><strong>初次阅读，从这里开始</strong><p>先看轮轨与转向架，再看能量怎样流动，最后理解列车怎样安全地一起运行。</p></div><nav><a href={url('principles/how-trains-turn/')}>轮轨与走行</a><a href={url('principles/diesel-electric/')}>动力与传动</a><a href={url('principles/train-brakes/')}>制动与控制</a></nav></section>
+<div class="article-list knowledge-catalog">{articles.map(({data:a})=><a class="article-card" href={url(`principles/${a.slug}/`)}><div class="article-visual"><RailDiagram kind={a.visual||'wheels'} compact/></div><p class="eyebrow">{a.eyebrow}</p><h2>{a.title}</h2><p>{a.summary}</p><span class="text-link">阅读图解与原理</span></a>)}</div></div></Layout>
